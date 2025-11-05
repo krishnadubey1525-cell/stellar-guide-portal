@@ -5,6 +5,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "@/hooks/use-toast";
+import UserDetailsForm from "@/components/UserDetailsForm";
 
 const timeSlots = [
   "09:00 AM - 10:00 AM",
@@ -19,6 +20,7 @@ const KundaliBooking = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [selectedSlot, setSelectedSlot] = useState<string>("");
   const [step, setStep] = useState<"booking" | "form" | "payment">("booking");
+  const [userDetails, setUserDetails] = useState<any>(null);
 
   const handleSlotSelection = () => {
     if (!date || !selectedSlot) {
@@ -32,10 +34,12 @@ const KundaliBooking = () => {
     setStep("form");
   };
 
-  const googleFormUrl = "https://forms.gle/your-form-id"; // Replace with actual Google Form URL
+  const handleFormSubmit = (data: any) => {
+    setUserDetails(data);
+    setStep("payment");
+  };
 
   const handlePayment = () => {
-    setStep("payment");
     // Payment gateway integration will happen here
     toast({
       title: "Processing Payment",
@@ -129,35 +133,10 @@ const KundaliBooking = () => {
                 </p>
               </div>
 
-              <div className="min-h-[600px] border border-border rounded-lg overflow-hidden">
-                <iframe
-                  src={googleFormUrl}
-                  width="100%"
-                  height="600"
-                  frameBorder="0"
-                  marginHeight={0}
-                  marginWidth={0}
-                  className="bg-background"
-                >
-                  Loading form...
-                </iframe>
-              </div>
-
-              <div className="flex gap-4 justify-between pt-4">
-                <Button
-                  onClick={() => setStep("booking")}
-                  variant="outline"
-                >
-                  Back
-                </Button>
-                <Button
-                  onClick={handlePayment}
-                  size="lg"
-                  className="cosmic-glow"
-                >
-                  Proceed to Payment
-                </Button>
-              </div>
+              <UserDetailsForm 
+                onSubmit={handleFormSubmit}
+                onBack={() => setStep("booking")}
+              />
             </CardContent>
           </Card>
         )}
