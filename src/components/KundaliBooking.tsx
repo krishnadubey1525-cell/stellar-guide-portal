@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "@/hooks/use-toast";
 import UserDetailsForm from "@/components/UserDetailsForm";
+import { supabase } from "@/integrations/supabase/client";
 
 const timeSlots = [
   "09:00 AM - 10:00 AM",
@@ -39,17 +40,39 @@ const KundaliBooking = () => {
     setStep("payment");
   };
 
-  const handlePayment = () => {
-    // Payment gateway integration will happen here
-    toast({
-      title: "Processing Payment",
-      description: "Redirecting to payment gateway...",
-    });
-    
-    // Simulate payment redirect
-    setTimeout(() => {
-      window.open("https://buy.stripe.com/test_payment_link", "_blank");
-    }, 1500);
+  const handlePayment = async () => {
+    if (!date || !userDetails) return;
+
+    try {
+      // Save booking to database
+      const { error } = await supabase.from("bookings").insert({
+        name: userDetails.name,
+        birth_place: userDetails.birthPlace,
+        mobile_no: userDetails.mobileNo,
+        email: userDetails.email,
+        booking_date: date.toISOString().split('T')[0],
+        time_slot: selectedSlot,
+        payment_status: "pending"
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Booking Saved",
+        description: "Redirecting to payment gateway...",
+      });
+      
+      // Simulate payment redirect
+      setTimeout(() => {
+        window.open("https://buy.stripe.com/test_payment_link", "_blank");
+      }, 1500);
+    } catch (error) {
+      toast({
+        title: "Booking Failed",
+        description: "Unable to save booking. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
