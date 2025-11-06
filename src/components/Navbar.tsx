@@ -27,12 +27,14 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Button 
-              variant="outline" 
-              className="border-accent text-accent hover:bg-accent/10"
-            >
-              Sign In
-            </Button>
+            <Link to="/auth">
+              <Button 
+                variant="outline" 
+                className="border-accent text-accent hover:bg-accent/10"
+              >
+                Sign In
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
