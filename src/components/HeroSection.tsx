@@ -21,21 +21,12 @@ const HeroSection = () => {
         <p className="text-xl md:text-2xl text-foreground/90 mb-8 max-w-2xl mx-auto">
           Unlock the secrets of the stars with personalized horoscopes, birth charts, and celestial insights
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground celestial-glow text-lg px-8"
-          >
-            Get Your Reading
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="border-accent text-accent hover:bg-accent/10 text-lg px-8"
-          >
-            Explore Signs
-          </Button>
-        </div>
+        <Button 
+          size="lg" 
+          className="bg-primary hover:bg-primary/90 text-primary-foreground celestial-glow text-lg px-8"
+        >
+          Get Your Reading
+        </Button>
       </div>
     </section>
   );
