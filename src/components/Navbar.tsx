@@ -3,26 +3,26 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-accent/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl star-shimmer">✨</span>
-            <span className="text-xl font-bold cosmic-text">Celestial Insights</span>
+        <div className="flex justify-between items-center h-20">
+          <Link to="/" className="flex items-center space-x-3">
+            <span className="text-2xl golden-shimmer">✦</span>
+            <span className="text-xl font-serif font-semibold cosmic-text tracking-wide">Mystical Tarot</span>
           </Link>
           
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-foreground/80 hover:text-accent transition-colors">
+          <div className="hidden md:flex items-center space-x-10">
+            <Link to="/" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
               Home
             </Link>
-            <Link to="/horoscopes" className="text-foreground/80 hover:text-accent transition-colors">
-              Horoscopes
+            <Link to="/horoscopes" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
+              Readings
             </Link>
-            <Link to="/birth-chart" className="text-foreground/80 hover:text-accent transition-colors">
+            <Link to="/birth-chart" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
               Birth Chart
             </Link>
-            <Link to="/kundali-booking" className="text-foreground/80 hover:text-accent transition-colors">
-              Book Reading
+            <Link to="/kundali-booking" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
+              Book Session
             </Link>
           </div>
 
@@ -30,7 +30,7 @@ const Navbar = () => {
             <Link to="/auth">
               <Button 
                 variant="outline" 
-                className="border-accent text-accent hover:bg-accent/10"
+                className="border-accent/50 text-accent hover:bg-accent/10 rounded-sm font-light tracking-wide"
               >
                 Sign In
               </Button>

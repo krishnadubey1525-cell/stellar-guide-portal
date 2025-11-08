@@ -17,18 +17,24 @@ const zodiacSigns = [
 
 const ZodiacGrid = () => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
       {zodiacSigns.map((sign) => (
         <Card
           key={sign.name}
-          className="group cursor-pointer bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary transition-all duration-300 hover:scale-105 hover:celestial-glow p-6 text-center"
+          className="group cursor-pointer bg-card/60 backdrop-blur-sm border-accent/20 hover:border-accent/60 transition-all duration-500 hover:scale-105 mystical-glow p-8 text-center relative overflow-hidden"
         >
-          <div className="text-5xl md:text-6xl mb-3 star-shimmer group-hover:scale-110 transition-transform">
+          {/* Decorative corner elements */}
+          <div className="absolute top-2 left-2 text-accent/30 text-xs">✦</div>
+          <div className="absolute top-2 right-2 text-accent/30 text-xs">✦</div>
+          <div className="absolute bottom-2 left-2 text-accent/30 text-xs">✦</div>
+          <div className="absolute bottom-2 right-2 text-accent/30 text-xs">✦</div>
+          
+          <div className="text-5xl md:text-6xl mb-4 golden-shimmer group-hover:scale-110 transition-transform duration-300">
             {sign.symbol}
           </div>
-          <h3 className="text-lg font-semibold text-foreground mb-1">{sign.name}</h3>
-          <p className="text-sm text-muted-foreground mb-2">{sign.dates}</p>
-          <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium">
+          <h3 className="text-lg font-serif font-semibold text-foreground mb-2">{sign.name}</h3>
+          <p className="text-xs text-muted-foreground mb-3 font-light">{sign.dates}</p>
+          <span className="inline-block px-4 py-1.5 rounded-sm bg-primary/20 text-accent text-xs font-light tracking-wider border border-accent/30">
             {sign.element}
           </span>
         </Card>

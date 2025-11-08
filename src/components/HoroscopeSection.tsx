@@ -18,24 +18,26 @@ const HoroscopeSection = () => {
   };
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-20 px-4 bg-gradient-to-b from-background to-card/20">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 cosmic-text">
-            Daily Horoscopes
+        <div className="text-center mb-16">
+          <span className="text-accent text-sm uppercase tracking-[0.3em] font-light">Daily Guidance</span>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 cosmic-text mt-4">
+            Your Daily Reading
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Discover what the stars have in store for you today
+          <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mb-6"></div>
+          <p className="text-base text-muted-foreground font-light max-w-2xl mx-auto">
+            The cards speak wisdom for each sign. Discover what mystical insights await you today.
           </p>
         </div>
 
         <Tabs defaultValue="Aries" className="w-full">
-          <TabsList className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2 bg-card/30 p-2 h-auto">
+          <TabsList className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2 bg-card/40 p-3 h-auto border border-accent/20">
             {Object.keys(dailyHoroscope).map((sign) => (
               <TabsTrigger
                 key={sign}
                 value={sign}
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-light text-xs tracking-wide rounded-sm"
               >
                 {sign}
               </TabsTrigger>
@@ -43,11 +45,15 @@ const HoroscopeSection = () => {
           </TabsList>
           
           {Object.entries(dailyHoroscope).map(([sign, reading]) => (
-            <TabsContent key={sign} value={sign} className="mt-6">
-              <Card className="bg-card/50 backdrop-blur-sm border-border/50">
+            <TabsContent key={sign} value={sign} className="mt-8">
+              <Card className="bg-card/60 backdrop-blur-sm border-accent/30 mystical-glow relative overflow-hidden">
+                <div className="absolute top-3 left-3 text-accent/20 text-sm">✦</div>
+                <div className="absolute top-3 right-3 text-accent/20 text-sm">✦</div>
+                <div className="absolute bottom-3 left-3 text-accent/20 text-sm">✦</div>
+                <div className="absolute bottom-3 right-3 text-accent/20 text-sm">✦</div>
                 <CardHeader>
-                  <CardTitle className="text-2xl flex items-center gap-3">
-                    <span className="text-4xl star-shimmer">
+                  <CardTitle className="text-2xl font-serif flex items-center gap-3">
+                    <span className="text-4xl golden-shimmer">
                       {sign === "Aries" && "♈"}
                       {sign === "Taurus" && "♉"}
                       {sign === "Gemini" && "♊"}
@@ -63,7 +69,7 @@ const HoroscopeSection = () => {
                     </span>
                     {sign}
                   </CardTitle>
-                  <CardDescription className="text-accent">
+                  <CardDescription className="text-accent font-light tracking-wide">
                     {new Date().toLocaleDateString('en-US', { 
                       weekday: 'long', 
                       year: 'numeric', 
@@ -73,7 +79,8 @@ const HoroscopeSection = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg leading-relaxed text-foreground/90">
+                  <div className="w-16 h-0.5 bg-gradient-to-r from-accent/50 to-transparent mb-4"></div>
+                  <p className="text-lg leading-relaxed text-foreground/85 font-light">
                     {reading}
                   </p>
                 </CardContent>
