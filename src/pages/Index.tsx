@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import ServicesSection from "@/components/ServicesSection";
 import HoroscopeSection from "@/components/HoroscopeSection";
 import BirthChartForm from "@/components/BirthChartForm";
 
@@ -9,8 +10,7 @@ const Index = () => {
       <Navbar />
       <main className="pt-16">
         <HeroSection />
-        
-
+        <ServicesSection />
         <HoroscopeSection />
         <BirthChartForm />
         
