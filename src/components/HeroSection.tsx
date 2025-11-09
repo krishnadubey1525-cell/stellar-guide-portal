@@ -25,7 +25,7 @@ const HeroSection = () => {
           <span className="text-accent text-sm uppercase tracking-[0.3em] font-light">Welcome to</span>
         </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 cosmic-text float-animation leading-tight">
-          Mystical Tarot Insights
+          mermaid scale tarot
         </h1>
         <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mb-8"></div>
         <p className="text-lg md:text-xl text-foreground/80 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
