@@ -15,6 +15,9 @@ const Navbar = () => {
             <Link to="/" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
               Home
             </Link>
+            <Link to="/planner" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
+              Planner
+            </Link>
             <Link to="/horoscopes" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
               Readings
             </Link>
