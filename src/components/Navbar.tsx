@@ -21,9 +21,6 @@ const Navbar = () => {
             <Link to="/horoscopes" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
               Readings
             </Link>
-            <Link to="/kundali-booking" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
-              Book Session
-            </Link>
           </div>
 
           <div className="flex items-center space-x-4">
