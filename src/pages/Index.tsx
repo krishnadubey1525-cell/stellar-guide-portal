@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
-import BirthChartForm from "@/components/BirthChartForm";
 import TestimonialsSection from "@/components/TestimonialsSection";
 
 const Index = () => {
@@ -11,7 +10,6 @@ const Index = () => {
       <main className="pt-16">
         <HeroSection />
         <ServicesSection />
-        <BirthChartForm />
         <TestimonialsSection />
         
         <footer className="py-12 px-4 border-t border-accent/20 mt-20">
