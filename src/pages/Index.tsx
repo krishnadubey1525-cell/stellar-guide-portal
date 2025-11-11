@@ -2,10 +2,12 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <FloatingParticles />
       <Navbar />
       <main className="pt-16">
         <HeroSection />
