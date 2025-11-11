@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -44,22 +45,40 @@ const TestimonialsSection = () => {
   return (
     <section className="py-20 px-4 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="text-accent text-3xl mb-4">✦</div>
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div 
+            className="text-accent text-3xl mb-4"
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+          >
+            ✦
+          </motion.div>
           <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-4">
             Client Testimonials
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Hear from those who have experienced the transformative power of our readings
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card
+            <motion.div
               key={index}
-              className="bg-card/50 backdrop-blur-sm border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              initial={{ opacity: 0, y: 50, rotateX: -10 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ scale: 1.03, rotateY: 3 }}
+              style={{ perspective: 1000 }}
+            >
+              <Card className="bg-card/50 backdrop-blur-sm border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg h-full"
             >
               <CardContent className="p-6">
                 <div className="flex gap-1 mb-4">
@@ -83,14 +102,21 @@ const TestimonialsSection = () => {
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
           <p className="text-muted-foreground">
             Join hundreds of satisfied clients who have found clarity and guidance
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

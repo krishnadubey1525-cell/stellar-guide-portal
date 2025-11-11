@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -50,11 +51,29 @@ const ServicesSection = () => {
   return (
     <section className="py-20 px-4 relative">
       {/* Decorative elements */}
-      <div className="absolute top-10 left-10 text-accent/10 text-5xl">✦</div>
-      <div className="absolute bottom-10 right-10 text-accent/10 text-5xl">✦</div>
+      <motion.div 
+        className="absolute top-10 left-10 text-accent/10 text-5xl"
+        animate={{ rotate: [0, 360] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      >
+        ✦
+      </motion.div>
+      <motion.div 
+        className="absolute bottom-10 right-10 text-accent/10 text-5xl"
+        animate={{ rotate: [360, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      >
+        ✦
+      </motion.div>
       
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <span className="text-accent text-sm uppercase tracking-[0.3em] font-light">Sacred Services</span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 cosmic-text mt-4">
             Tarot Reading Sessions
@@ -63,13 +82,20 @@ const ServicesSection = () => {
           <p className="text-base text-muted-foreground font-light max-w-2xl mx-auto">
             Choose from our carefully curated reading styles, each designed to illuminate different aspects of your life's journey.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <Card
+          {services.map((service, index) => (
+            <motion.div
               key={service.name}
-              className="group cursor-pointer bg-card/60 backdrop-blur-sm border-accent/20 hover:border-accent/60 transition-all duration-500 hover:scale-105 mystical-glow p-8 relative overflow-hidden"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05, rotateY: 5 }}
+              style={{ perspective: 1000 }}
+            >
+              <Card className="group cursor-pointer bg-card/60 backdrop-blur-sm border-accent/20 hover:border-accent/60 transition-all duration-500 mystical-glow p-8 relative overflow-hidden h-full"
             >
               {/* Decorative corners */}
               <div className="absolute top-2 left-2 text-accent/30 text-xs">✦</div>
@@ -94,14 +120,21 @@ const ServicesSection = () => {
                 <span className="text-lg font-serif font-semibold text-accent">{service.price}</span>
               </div>
 
-              <Button className="w-full bg-primary hover:bg-primary/80 text-primary-foreground rounded-sm font-light tracking-wide transition-all duration-300">
-                Book Reading
-              </Button>
-            </Card>
+                <Button className="w-full bg-primary hover:bg-primary/80 text-primary-foreground rounded-sm font-light tracking-wide transition-all duration-300">
+                  Book Reading
+                </Button>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-16">
+        <motion.div 
+          className="text-center mt-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
           <p className="text-muted-foreground font-light mb-6">
             Not sure which reading is right for you?
           </p>
@@ -111,7 +144,7 @@ const ServicesSection = () => {
           >
             Contact for Guidance
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
