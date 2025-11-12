@@ -21,6 +21,9 @@ const Navbar = () => {
             <Link to="/services" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
               Services
             </Link>
+            <Link to="/testimonials" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
+              Testimonials
+            </Link>
           </div>
 
           <div className="flex items-center space-x-4">
