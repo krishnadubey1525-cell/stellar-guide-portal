@@ -8,7 +8,7 @@ import KundaliBookingPage from "./pages/KundaliBookingPage";
 import Planner from "./pages/Planner";
 import About from "./pages/About";
 import Auth from "./pages/Auth";
-import Contact from "./pages/Contact";
+import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/planner" element={<Planner />} />
           <Route path="/kundali-booking" element={<KundaliBookingPage />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

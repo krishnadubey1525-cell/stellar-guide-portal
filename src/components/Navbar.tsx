@@ -18,8 +18,8 @@ const Navbar = () => {
             <Link to="/about" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
               About
             </Link>
-            <Link to="/contact" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
-              Contact
+            <Link to="/services" className="text-foreground/70 hover:text-accent transition-colors font-light tracking-wide">
+              Services
             </Link>
           </div>
 
