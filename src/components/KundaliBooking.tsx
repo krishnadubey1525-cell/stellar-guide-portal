@@ -5,7 +5,9 @@ import { Calendar } from "@/components/ui/calendar";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import UserDetailsForm from "@/components/UserDetailsForm";
+import { format } from "date-fns";
 
 const timeSlots = [
   "09:00 AM - 10:00 AM",
@@ -21,6 +23,8 @@ const KundaliBooking = () => {
   const [selectedSlot, setSelectedSlot] = useState<string>("");
   const [step, setStep] = useState<"booking" | "form" | "payment">("booking");
   const [userDetails, setUserDetails] = useState<any>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bookingId, setBookingId] = useState<string | null>(null);
 
   const handleSlotSelection = () => {
     if (!date || !selectedSlot) {
@@ -34,9 +38,52 @@ const KundaliBooking = () => {
     setStep("form");
   };
 
-  const handleFormSubmit = (data: any) => {
+  const handleFormSubmit = async (data: any) => {
     setUserDetails(data);
-    setStep("payment");
+    setIsSubmitting(true);
+
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      const bookingData = {
+        user_id: session?.user?.id || null,
+        name: data.name,
+        email: data.email,
+        mobile_no: data.mobileNo,
+        birth_place: data.birthPlace,
+        booking_date: format(date!, "yyyy-MM-dd"),
+        booking_time: selectedSlot,
+        amount: 999,
+        status: "pending",
+        payment_status: "unpaid",
+      };
+
+      const { data: booking, error } = await supabase
+        .from("bookings")
+        .insert(bookingData)
+        .select()
+        .single();
+
+      if (error) {
+        throw error;
+      }
+
+      setBookingId(booking.id);
+      toast({
+        title: "Booking Created",
+        description: "Your booking has been saved. Please complete the payment.",
+      });
+      setStep("payment");
+    } catch (error: any) {
+      console.error("Error creating booking:", error);
+      toast({
+        title: "Error",
+        description: "Failed to create booking. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handlePayment = () => {
@@ -45,7 +92,6 @@ const KundaliBooking = () => {
       description: "Redirecting to payment gateway...",
     });
     
-    // Simulate payment redirect
     setTimeout(() => {
       window.open("https://buy.stripe.com/test_payment_link", "_blank");
     }, 1500);
@@ -135,6 +181,7 @@ const KundaliBooking = () => {
               <UserDetailsForm 
                 onSubmit={handleFormSubmit}
                 onBack={() => setStep("booking")}
+                isSubmitting={isSubmitting}
               />
             </CardContent>
           </Card>

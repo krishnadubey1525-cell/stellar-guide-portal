@@ -17,9 +17,10 @@ type FormValues = z.infer<typeof formSchema>;
 interface UserDetailsFormProps {
   onSubmit: (data: FormValues) => void;
   onBack: () => void;
+  isSubmitting?: boolean;
 }
 
-const UserDetailsForm = ({ onSubmit, onBack }: UserDetailsFormProps) => {
+const UserDetailsForm = ({ onSubmit, onBack, isSubmitting = false }: UserDetailsFormProps) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -90,11 +91,11 @@ const UserDetailsForm = ({ onSubmit, onBack }: UserDetailsFormProps) => {
         />
 
         <div className="flex gap-4 justify-between pt-4">
-          <Button onClick={onBack} variant="outline" type="button">
+          <Button onClick={onBack} variant="outline" type="button" disabled={isSubmitting}>
             Back
           </Button>
-          <Button type="submit" size="lg" className="cosmic-glow">
-            Proceed to Payment
+          <Button type="submit" size="lg" className="cosmic-glow" disabled={isSubmitting}>
+            {isSubmitting ? "Saving..." : "Proceed to Payment"}
           </Button>
         </div>
       </form>
