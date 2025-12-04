@@ -42,7 +42,7 @@ const AdminDashboard = () => {
         description: "You don't have permission to access this page.",
         variant: "destructive",
       });
-      navigate("/");
+      navigate("/admin/login");
     }
   }, [isAdmin, isLoading, navigate, toast]);
 
