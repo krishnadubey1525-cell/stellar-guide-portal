@@ -1,20 +1,44 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/cosmic-hero.jpg";
+import helixNebula from "@/assets/helix-nebula.webp";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-      <div 
-        className="absolute inset-0 z-0 opacity-20"
+      {/* Animated nebula background */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        initial={{ scale: 1, opacity: 0 }}
+        animate={{ 
+          scale: [1, 1.1, 1.05, 1.1, 1],
+          opacity: 0.5,
+          rotate: [0, 1, -1, 0.5, 0]
+        }}
+        transition={{ 
+          scale: { duration: 30, repeat: Infinity, ease: "easeInOut" },
+          rotate: { duration: 60, repeat: Infinity, ease: "easeInOut" },
+          opacity: { duration: 2, ease: "easeOut" }
+        }}
         style={{
-          backgroundImage: `url(${heroImage})`,
+          backgroundImage: `url(${helixNebula})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background z-0" />
+      {/* Pulsing glow overlay */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        animate={{
+          background: [
+            'radial-gradient(circle at center, hsla(42, 95%, 62%, 0.1) 0%, transparent 50%)',
+            'radial-gradient(circle at center, hsla(42, 95%, 62%, 0.2) 0%, transparent 60%)',
+            'radial-gradient(circle at center, hsla(42, 95%, 62%, 0.1) 0%, transparent 50%)'
+          ]
+        }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-0" />
       
       {/* Ornate decorative elements with float animation */}
       <motion.div 
