@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/cosmic-hero.jpg";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
@@ -88,12 +89,14 @@ const HeroSection = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Button
-            size="lg" 
-            className="bg-primary hover:bg-primary/80 text-primary-foreground mystical-glow text-lg px-10 py-6 rounded-sm font-light tracking-wide transition-all duration-300"
-          >
-            Book Your Reading
-          </Button>
+          <Link to="/book-kundali">
+            <Button
+              size="lg" 
+              className="bg-primary hover:bg-primary/80 text-primary-foreground mystical-glow text-lg px-10 py-6 rounded-sm font-light tracking-wide transition-all duration-300"
+            >
+              Book Your Reading
+            </Button>
+          </Link>
         </motion.div>
       </motion.div>
     </section>
