@@ -113,7 +113,7 @@ const HeroSection = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Link to="/book-kundali">
+          <Link to="/kundali-booking">
             <Button
               size="lg" 
               className="bg-primary hover:bg-primary/80 text-primary-foreground mystical-glow text-lg px-10 py-6 rounded-sm font-light tracking-wide transition-all duration-300"
