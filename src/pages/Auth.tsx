@@ -89,7 +89,7 @@ const Auth = () => {
     } else {
       toast({
         title: "Success",
-        description: "Account created successfully! Please check your email to confirm."
+        description: "Account created successfully! You can now sign in."
       });
       signUpForm.reset();
     }
@@ -129,7 +129,7 @@ const Auth = () => {
           <Card className="w-full max-w-md bg-card/80 backdrop-blur-sm border-border/50">
             <CardHeader className="space-y-1">
               <CardTitle className="text-2xl text-center cosmic-text">
-                Welcome to Celestial Insights
+                Welcome to Adishakti Astrology
               </CardTitle>
               <CardDescription className="text-center">
                 Sign in to access your cosmic journey
