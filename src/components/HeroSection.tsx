@@ -72,7 +72,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          Adishakti Astrology
+          Devine Tarot
         </motion.h1>
         <motion.div 
           className="w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mb-8"
