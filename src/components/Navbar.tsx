@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center space-x-3">
             <span className="text-2xl golden-shimmer">✦</span>
-            <span className="text-xl font-serif font-semibold cosmic-text tracking-wide">Adishakti Astrology</span>
+            <span className="text-xl font-serif font-semibold cosmic-text tracking-wide">Devine Tarot</span>
           </Link>
           
           <div className="hidden md:flex items-center space-x-10">

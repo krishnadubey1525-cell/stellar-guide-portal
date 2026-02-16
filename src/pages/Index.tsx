@@ -17,7 +17,7 @@ const Index = () => {
         <footer className="py-12 px-4 border-t border-accent/20 mt-20">
           <div className="max-w-6xl mx-auto text-center">
             <div className="text-accent text-3xl mb-4">✦</div>
-            <p className="text-muted-foreground font-light text-sm tracking-wide">© 2025 Mystical Tarot. Your journey into the unknown begins here.</p>
+            <p className="text-muted-foreground font-light text-sm tracking-wide">© 2025 Devine Tarot. Your journey into the unknown begins here.</p>
             <a 
               href="/admin/login" 
               className="text-muted-foreground/50 text-xs mt-4 inline-block hover:text-accent transition-colors"
