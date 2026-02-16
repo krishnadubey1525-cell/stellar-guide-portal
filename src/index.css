@@ -8,40 +8,40 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 335 30% 8%;
-    --foreground: 45 95% 92%;
+    --background: 230 25% 7%;
+    --foreground: 210 40% 95%;
 
-    --card: 335 25% 12%;
-    --card-foreground: 45 95% 92%;
+    --card: 230 20% 11%;
+    --card-foreground: 210 40% 95%;
 
-    --popover: 335 30% 10%;
-    --popover-foreground: 45 95% 92%;
+    --popover: 230 25% 9%;
+    --popover-foreground: 210 40% 95%;
 
-    --primary: 345 65% 45%;
-    --primary-foreground: 45 95% 95%;
+    --primary: 220 70% 55%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 335 20% 18%;
-    --secondary-foreground: 45 95% 92%;
+    --secondary: 250 30% 18%;
+    --secondary-foreground: 210 40% 95%;
 
-    --muted: 335 15% 22%;
-    --muted-foreground: 45 30% 65%;
+    --muted: 230 15% 20%;
+    --muted-foreground: 220 20% 60%;
 
-    --accent: 42 95% 62%;
-    --accent-foreground: 335 30% 10%;
+    --accent: 45 90% 65%;
+    --accent-foreground: 230 25% 8%;
 
     --destructive: 0 70% 55%;
-    --destructive-foreground: 45 95% 95%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 335 20% 25%;
-    --input: 335 20% 25%;
-    --ring: 345 65% 45%;
+    --border: 230 20% 22%;
+    --input: 230 20% 22%;
+    --ring: 220 70% 55%;
 
     --radius: 0.5rem;
 
-    --tarot-gradient: linear-gradient(135deg, hsl(345 40% 12%), hsl(335 35% 8%), hsl(320 30% 5%));
-    --mystical-glow: 0 0 40px hsl(42 95% 62% / 0.25);
-    --golden-shimmer: 0 0 25px hsl(42 90% 55% / 0.4);
-    --ornate-shadow: 0 4px 20px hsl(345 65% 20% / 0.5);
+    --tarot-gradient: linear-gradient(135deg, hsl(230 30% 12%), hsl(250 25% 8%), hsl(220 30% 5%));
+    --mystical-glow: 0 0 40px hsl(220 70% 55% / 0.25);
+    --golden-shimmer: 0 0 25px hsl(45 90% 55% / 0.4);
+    --ornate-shadow: 0 4px 20px hsl(220 70% 20% / 0.5);
   }
 }
 
@@ -56,7 +56,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    background: linear-gradient(135deg, hsl(345 40% 12%), hsl(335 35% 8%), hsl(320 30% 5%));
+    background: linear-gradient(135deg, hsl(230 30% 12%), hsl(250 25% 8%), hsl(220 30% 5%));
     background-attachment: fixed;
   }
 }
